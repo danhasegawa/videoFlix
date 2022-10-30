@@ -30,9 +30,9 @@ public class VideosController {
 	VideosRepository videosRepository;
 
 	@GetMapping
-	public ResponseEntity<List<VideosDto>> videoDetail(@RequestParam(required = false) String description) {
-		List<VideosDto> list = (Strings.isBlank(description) ? videosRepository.findAll()
-				: videosRepository.findByDescription(description)).stream().map(i -> new VideosDto(i))
+	public ResponseEntity<List<VideosDto>> videoDetail(@RequestParam(required = false) String title) {
+		List<VideosDto> list = (Strings.isBlank(title) ? videosRepository.findAll()
+				: videosRepository.findByTitle(title)).stream().map(i -> new VideosDto(i))
 				.collect(Collectors.toList());
 		return ResponseEntity.ok(list);
 	}
