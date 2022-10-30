@@ -14,7 +14,7 @@ public class Videos {
 	private String title;
 	private String description;
 	private String url;
-	
+
 	public static Videos newVideos(String title, String description, String url) {
 		Videos videos = new Videos();
 		videos.title = title;

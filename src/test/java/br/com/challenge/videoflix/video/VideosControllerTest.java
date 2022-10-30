@@ -69,19 +69,20 @@ public class VideosControllerTest {
 		mockMvc.perform(MockMvcRequestBuilders.get("/videos").content(json).contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk());
 	}
-	
+
 	@Test
-	public void shouldGetOkWhenSearchingById()throws Exception{
+	public void shouldGetOkWhenSearchingById() throws Exception {
 		var videos = new Videos();
 		videos.setTitle("Rogue One");
 		videos.setDescription("Star Wars spin-off movie");
 		videos.setUrl("linkwhatever.com");
-		
+
 		String json = "[{\"title\":\"Rogue One\",\"description\":\"Star Wars spin-off movie\",\"url\":\"linkwhatever.com\"}]";
-		
+
 		Mockito.when(videosRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(videos));
-		mockMvc.perform(MockMvcRequestBuilders.get("/videos/1").content(json).contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andReturn();
-		
+		mockMvc.perform(MockMvcRequestBuilders.get("/videos/1").content(json).contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andReturn();
+
 	}
 
 	@Test
@@ -111,11 +112,11 @@ public class VideosControllerTest {
 		videos.setTitle("Rogue One");
 		videos.setDescription("Star Wars spin-off movie");
 		videos.setUrl("linkwhatever.com");
-		
+
 		Mockito.when(videosRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(videos));
-		mockMvc.perform(MockMvcRequestBuilders.delete("/videos/1").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+		mockMvc.perform(MockMvcRequestBuilders.delete("/videos/1").contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
 		verify(videosRepository, times(1)).deleteById(Mockito.anyLong());
-		
 
 	}
 }
