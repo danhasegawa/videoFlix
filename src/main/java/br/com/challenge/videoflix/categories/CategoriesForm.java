@@ -1,18 +1,15 @@
 package br.com.challenge.videoflix.categories;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 public class CategoriesForm {
 
 	private Long id;
 
-	@NotNull
-	@NotBlank
+	@NotBlank(message = "Field title is required")
 	private String title;
 
-	@NotNull
-	@NotBlank
+	@NotBlank(message = "Field color is required")
 	private String color;
 
 	public Categories uptade(Categories categories) {

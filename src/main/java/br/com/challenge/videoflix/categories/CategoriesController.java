@@ -43,7 +43,7 @@ public class CategoriesController {
 		if (categoriesFindById.isPresent()) {
 			return ResponseEntity.ok(new CategoriesDto(categoriesFindById.get()));
 		}
-		return ResponseEntity.badRequest().build();
+		return ResponseEntity.notFound().build();
 
 	}
 

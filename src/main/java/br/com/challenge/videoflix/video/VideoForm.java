@@ -1,18 +1,18 @@
 package br.com.challenge.videoflix.video;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class VideoForm {
 
 	private Long id;
 
-	@NotNull
+	@NotBlank(message = "Field title is required")
 	private String title;
 
-	@NotNull
+	@NotBlank(message = "Field description is required")
 	private String description;
 
-	@NotNull
+	@NotBlank(message = "Field url is required")
 	private String url;
 
 	public Videos update(Videos videos) {

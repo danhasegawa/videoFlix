@@ -42,7 +42,7 @@ public class VideosController {
 		if (videoFindById.isPresent()) {
 			return ResponseEntity.ok(new VideosDto(videoFindById.get()));
 		}
-		return ResponseEntity.badRequest().build();
+		return ResponseEntity.notFound().build();
 	}
 
 	@PostMapping
